@@ -28,4 +28,4 @@ class RandomGenerators {
 
 };
 
- module.exports = RandomGenerators;
+module.exports = RandomGenerators;

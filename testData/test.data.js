@@ -16,8 +16,7 @@ const testData = {
     resultPromptText: (randomText) => `You entered: ${randomText}`,
     'testAlignLeft': 'text-align: left',
     'timeoutValue': 10000,
-    hoverText: (userNumber) => `name: user${userNumber}`,
-    'timeoutValue': 80000
+    hoverText: (userNumber) => `name: user${userNumber}`
 };
 
 const path = {
@@ -49,7 +48,7 @@ const vkProjectTestData = {
     'link': 'https://vk.com',
     'login': '+375291660762',
     'password': 'PuV6j_.2&$m9h?UYY',
-    'token': '134d4ba52aed213e083c0c8b1d5973b25353341332fc8b7a492b5a3f2cb20b5453abe8b2a05ea7f0effb6',
+    'token': '757584beb9419085e2846ee4ebe796a431c7bda72951710415900bc0be0b5087149c891a52343c5c0ad68',
     'userId': '627657327',
     'apiVersion': '5.131',
     'vkApiLink': 'https://api.vk.com/method/',
@@ -63,7 +62,8 @@ const vkProjectTestData = {
     'formDataValue': 'bear.jpg',
     'arrayElement': 0,
     'sizesElement': 6,
-    'expectedImageDifference': 0
+    'expectedImageDifference': 0,
+    'timeoutValue': 80000
 };
 
 module.exports = {testData, path, hoversTestUserNumbers, sliderValues, sliderMap, vkProjectTestData};

@@ -1,0 +1,238 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 7,
+    "passes": 6,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-12-08T13:11:48.650Z",
+    "end": "2021-12-08T13:12:27.903Z",
+    "duration": 39253,
+    "testsRegistered": 7,
+    "passPercent": 85.71428571428571,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "16f69011-4097-49c1-91b3-4ad1ad197718",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [
+        {
+          "title": "\"before each\" hook in \"{root}\"",
+          "fullTitle": "\"before each\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 624,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "await Browser.initBrowser(configs.browserName);",
+          "err": {},
+          "uuid": "d63c712a-e2a8-45bc-9e40-507278665dc8",
+          "parentUUID": "16f69011-4097-49c1-91b3-4ad1ad197718",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "afterHooks": [
+        {
+          "title": "\"after each\" hook in \"{root}\"",
+          "fullTitle": "\"after each\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 55,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "await Browser.quit();",
+          "err": {},
+          "uuid": "9d197b2e-d1eb-4e34-afe7-f893eead10e3",
+          "parentUUID": "16f69011-4097-49c1-91b3-4ad1ad197718",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "tests": [
+        {
+          "title": "Basic Authorization",
+          "fullTitle": "Basic Authorization",
+          "timedOut": false,
+          "duration": 3988,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "await Browser.navigate(`${testData.hostForBasicAuth(testData.login, testData.password)}${path.basicAuth}`);\nawait Browser.windowMaximize();\nconst loginPage = new LoginPage();\nexpect (await loginPage.getSuccessfullAuthText()).to.eql(testData.congratulationsText);",
+          "err": {},
+          "uuid": "5a209c8b-8817-48b4-9cb0-6120906de384",
+          "parentUUID": "16f69011-4097-49c1-91b3-4ad1ad197718",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Alerts",
+          "fullTitle": "Alerts",
+          "timedOut": false,
+          "duration": 2861,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "await Browser.navigate(`${testData.host}${path.alerts}`);\nawait Browser.windowMaximize();\nconst alertsPage = new AlertsPage();\nexpect (await alertsPage.isDisplayed()).to.eql(testData.pageIsDisplaying);\nawait alertsPage.jsAlertButtonClick();\nexpect (await alertsPage.getAlertText()).to.eql(testData.jsAlertTitle);\nawait alertsPage.acceptAlert();\nexpect (await alertsPage.alertIsPresent()).to.eql(testData.alertIsNotPresent);\nexpect (await alertsPage.getResultText()).to.eql(testData.resultAlertText);\nawait alertsPage.jsConfirmButtonClick();\nexpect (await alertsPage.getAlertText()).to.eql(testData.jsConfirmTitle);\nawait alertsPage.acceptAlert();\nexpect (await alertsPage.alertIsPresent()).to.eql(testData.alertIsNotPresent);\nexpect (await alertsPage.getResultText()).to.eql(testData.resultConfirmText);\nawait alertsPage.jsPromptButtonClick();\nexpect (await alertsPage.getAlertText()).to.eql(testData.jsPromptTitle);\nconst randomText = RandomGenerators.randomStr(testData.randomStringLength);\nawait alertsPage.sendKeysToAlert(randomText);\nawait alertsPage.acceptAlert();\nexpect (await alertsPage.getResultText()).to.eql(testData.resultPromptText(randomText));",
+          "err": {},
+          "uuid": "d4ab9e5c-5fd6-4c1d-8fa5-fea780cc5bc1",
+          "parentUUID": "16f69011-4097-49c1-91b3-4ad1ad197718",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Slider",
+          "fullTitle": "Slider",
+          "timedOut": false,
+          "duration": 3872,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "await Browser.navigate(`${testData.host}${path.slider}`);\nawait Browser.windowMaximize();\nconst sliderPage = new SliderPage();\nexpect (await sliderPage.isDisplayed()).to.eql(testData.pageIsDisplaying);\nconst randomSliderPosition = RandomGenerators.getRandomValueFromArray(sliderValues);\nawait sliderPage.dragAndDropSlider(randomSliderPosition);\nexpect (await sliderPage.getSliderValue()).to.eql(sliderMap.get(randomSliderPosition));",
+          "err": {},
+          "uuid": "1c49001d-2403-4a10-bac0-1515ef11d91f",
+          "parentUUID": "16f69011-4097-49c1-91b3-4ad1ad197718",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Hovers (Test User Number 1)",
+          "fullTitle": "Hovers (Test User Number 1)",
+          "timedOut": false,
+          "duration": 2614,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "await Browser.navigate(`${testData.host}${path.hovers}`);\nawait Browser.windowMaximize();\nconst hoversPage = new HoversPage();\nexpect (await hoversPage.isDisplayed()).to.eql(testData.pageIsDisplaying);\nawait hoversPage.moveCursorToHover(userNumber);\nexpect (await hoversPage.getHoverText(userNumber)).to.eql(testData.hoverText(userNumber));\nexpect (await hoversPage.hoverLinkIsDisplayed(userNumber)).to.eql(testData.elementIsDisplaying);\nconst hoverLinkHref = await hoversPage.getHoverLinkHref(userNumber);\nawait hoversPage.hoverLinkClick(userNumber);\nexpect (await Browser.getCurrentUrl()).to.eql(hoverLinkHref);\nawait Browser.backToPreviousPage();",
+          "err": {},
+          "uuid": "f1e2bfa0-d9e9-4d2d-be92-e5554fa108a0",
+          "parentUUID": "16f69011-4097-49c1-91b3-4ad1ad197718",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Hovers (Test User Number 3)",
+          "fullTitle": "Hovers (Test User Number 3)",
+          "timedOut": false,
+          "duration": 3979,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "await Browser.navigate(`${testData.host}${path.hovers}`);\nawait Browser.windowMaximize();\nconst hoversPage = new HoversPage();\nexpect (await hoversPage.isDisplayed()).to.eql(testData.pageIsDisplaying);\nawait hoversPage.moveCursorToHover(userNumber);\nexpect (await hoversPage.getHoverText(userNumber)).to.eql(testData.hoverText(userNumber));\nexpect (await hoversPage.hoverLinkIsDisplayed(userNumber)).to.eql(testData.elementIsDisplaying);\nconst hoverLinkHref = await hoversPage.getHoverLinkHref(userNumber);\nawait hoversPage.hoverLinkClick(userNumber);\nexpect (await Browser.getCurrentUrl()).to.eql(hoverLinkHref);\nawait Browser.backToPreviousPage();",
+          "err": {},
+          "uuid": "82991c6b-0604-4066-a664-a157ba9c676e",
+          "parentUUID": "16f69011-4097-49c1-91b3-4ad1ad197718",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "IFrame",
+          "fullTitle": "IFrame",
+          "timedOut": false,
+          "duration": 4497,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "await Browser.navigate(`${testData.host}${path.iframe}`);\nawait Browser.windowMaximize();\nconst iFramePage = new IFramePage();\nexpect (await iFramePage.isDisplayed()).to.eql(testData.pageIsDisplaying);\nawait iFramePage.switchToFrame();\nawait iFramePage.waitingFrameTextField();\nawait Browser.switchToDefault();\nawait iFramePage.alignLeftButtonClick();\nawait iFramePage.switchToFrame();\nexpect (await iFramePage.getFrameStyleAttribute()).to.include(testData.testAlignLeft);\nawait iFramePage.highlightText();\nawait Browser.switchToDefault();\nawait iFramePage.changeFontSize();",
+          "err": {},
+          "uuid": "f5e47259-86d5-4390-81d0-f306d6479184",
+          "parentUUID": "16f69011-4097-49c1-91b3-4ad1ad197718",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "VK sign in and operations with post",
+          "fullTitle": "VK sign in and operations with post",
+          "timedOut": false,
+          "duration": 11688,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "await Browser.navigate(vkProjectTestData.link);\nawait Browser.windowMaximize();\nconst loginPage = new VKLoginPage();\nawait loginPage.authorize(vkProjectTestData.login, vkProjectTestData.password);\nconst navigationBarPage = new NavigationBarPage();\nawait navigationBarPage.waitingMyPageButton();\nawait navigationBarPage.myPageButtonClick();\nconst randomText = RandomGenerators.randomStr(vkProjectTestData.randomStringLength);\nawait Logger.infoLog(`Generated text is ${randomText}`);\nconst postId = await VkApiUtils.createPost(randomText);\nawait Logger.infoLog(`Post ID of the created post is ${postId}`);\nconst wallPage = new WallPage();\nconst author = await wallPage.getAuthorText();\nawait wallPage.waitingPostWithText(postId, randomText);\nexpect (await wallPage.getPostText(postId)).to.eql(randomText);\nexpect (await wallPage.getPostAuthor(postId)).to.eql(author)\nconst uploadUrl = await VkApiUtils.getWallUploadServer(postId);;\nconst image = await fs.readFile(vkProjectTestData.filePath);\nconst form = new FormData();\nform.append(vkProjectTestData.formDataKey, image, vkProjectTestData.formDataValue);\nlet {photo, server, hash} = await VkApiUtils.uploadPhotoToUrl(uploadUrl, form);\nconst photoId = await VkApiUtils.saveWallPhoto(photo, server, hash);\nconst randomTextEdited = RandomGenerators.randomStr(vkProjectTestData.randomStringLength);\nawait VkApiUtils.editPost(postId, randomTextEdited, photoId);\nawait wallPage.waitingPostWithText(postId, randomTextEdited);\nconst uploadedImageUrl = await VkApiUtils.getPhotoUrl(photoId);\nconst downloadUtils = new DownloadUtils();\nawait downloadUtils.downloadImageByUrl(uploadedImageUrl, vkProjectTestData.pathToUploadedImage);\nconst imageUtils = new ImageUtils();\nconst imageDifference = await imageUtils.imagesComparing();\nexpect (imageDifference).to.eql(vkProjectTestData.expectedImageDifference);\nexpect (await wallPage.getPostText(postId)).to.eql(randomTextEdited);\nconst randomComment = RandomGenerators.randomStr(vkProjectTestData.randomStringLength);\nawait VkApiUtils.addComment(postId, randomComment);\nawait wallPage.waitingNextCommentButton(postId);\nawait wallPage.clickNextCommentButton(postId);\nawait wallPage.waitingExpectedCommentWithText(postId, randomComment);\nexpect (await wallPage.getPostCommentText(postId)).to.eql(randomComment);\nexpect (await wallPage.getPostCommentAuthor(postId)).to.eql(author);    \nawait wallPage.clickLikeButton(postId);\nconst returnedLikesData = await VkApiUtils.getPostLikes(postId);\nconst likesCountValue = returnedLikesData.likesCountValue;\nconst likeFromFirstName = returnedLikesData.likeFromFirstName;\nconst likeFromLastName = returnedLikesData.likeFromLastName;\nexpect (likesCountValue).to.eql(vkProjectTestData.expectedLikesCountValue);\nexpect (`${likeFromFirstName} ${likeFromLastName}`).to.eql(author);\nawait VkApiUtils.deletePost(postId);\nawait wallPage.waitingPostIsNotVisible(postId, randomTextEdited);\nexpect (await wallPage.deletedPostIsDisplayed(postId, randomTextEdited)).to.be.false;",
+          "err": {
+            "message": "ElementClickInterceptedError: element click intercepted: Element <a href=\"/wall627657327_16911\" onclick=\"return wall.showNextReplies(this, '627657327_16911', event);\" class=\"replies_next replies_next_main replies_next_shown\" data-offset=\"0\" data-count=\"1\">...</a> is not clickable at point (768, 288). Other element would receive the click: <div class=\"reply_fakebox\" role=\"button\">...</div>\n  (Session info: chrome=96.0.4664.45)",
+            "estack": "ElementClickInterceptedError: element click intercepted: Element <a href=\"/wall627657327_16911\" onclick=\"return wall.showNextReplies(this, '627657327_16911', event);\" class=\"replies_next replies_next_main replies_next_shown\" data-offset=\"0\" data-count=\"1\">...</a> is not clickable at point (768, 288). Other element would receive the click: <div class=\"reply_fakebox\" role=\"button\">...</div>\n  (Session info: chrome=96.0.4664.45)\n    at Object.throwDecodedError (node_modules\\selenium-webdriver\\lib\\error.js:539:15)\n    at parseHttpResponse (node_modules\\selenium-webdriver\\lib\\http.js:647:13)\n    at Executor.execute (node_modules\\selenium-webdriver\\lib\\http.js:573:28)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async Driver.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:735:17)\n    at async Context.<anonymous> (project\\test.js:131:5)",
+            "diff": null
+          },
+          "uuid": "6cb925fa-cc73-4a84-800a-0ac2c4485a8b",
+          "parentUUID": "16f69011-4097-49c1-91b3-4ad1ad197718",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "5a209c8b-8817-48b4-9cb0-6120906de384",
+        "d4ab9e5c-5fd6-4c1d-8fa5-fea780cc5bc1",
+        "1c49001d-2403-4a10-bac0-1515ef11d91f",
+        "f1e2bfa0-d9e9-4d2d-be92-e5554fa108a0",
+        "82991c6b-0604-4066-a664-a157ba9c676e",
+        "f5e47259-86d5-4390-81d0-f306d6479184"
+      ],
+      "failures": [
+        "6cb925fa-cc73-4a84-800a-0ac2c4485a8b"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 33499,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 100000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.1.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.0.1"
+    }
+  }
+}
